@@ -1,0 +1,11 @@
+{
+  "name": "hebrew-rtl-hook",
+  "version": "1.0.0",
+  "description": "When a prompt contains Hebrew, reminds Claude Code to open every Hebrew paragraph, list item, heading and table cell with a Hebrew word, so replies render right-to-left.",
+  "author": {
+    "name": "Yohai Edery"
+  },
+  "repository": "https://github.com/YoYo2506/RTL-in-Hebrew",
+  "license": "MIT",
+  "keywords": ["hebrew", "rtl", "bidi"]
+}
