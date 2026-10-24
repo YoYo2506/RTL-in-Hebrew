@@ -46,8 +46,14 @@
 
 ## התקנת הסקיל
 
-- ב-Claude Code: להעתיק את התיקייה `hebrew-rtl` אל `~/.claude/skills/`.
-- ב-claude.ai: להעלות את הקובץ `hebrew-rtl.skill` דרך הגדרות הסקילים.
+העלאה אחת לחשבון מספיקה לצ'אט בדפדפן, לצ'אט בדסקטופ ול-Claude Code שמחובר לאותו חשבון:
+
+1. בהגדרות (Settings > Capabilities) לוודא שהאפשרות Code execution and file creation (או Create and edit files) מופעלת.
+2. לפתוח את Customize > Skills (claude.ai/customize/skills).
+3. ללחוץ על `+`, אחר כך על Create skill, ולבחור Upload a skill.
+4. להעלות את הקובץ `hebrew-rtl.zip` ולוודא שהסקיל מופעל ברשימה.
+
+ב-Claude Code (גרסה 2.1.273 ומעלה) הסקיל מסתנכרן מהחשבון אוטומטית. הפקודה `/skills` מציגה אותו תחת claude.ai sync. אם Claude Code מחובר עם מפתח API ולא עם החשבון, צריך להעתיק במקום זאת את התיקייה `hebrew-rtl` אל `~/.claude/skills/`.
 
 ## בדיקות
 
