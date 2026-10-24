@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: legal-bullets-english-terms
+expected_outcome: |
+  A Hebrew reply with five points in which every bullet opens with a Hebrew word while GDPR, CCPA and the legal terms stay in English.

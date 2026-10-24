@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: dev-steps-commands
+expected_outcome: |
+  A Hebrew step list where commands sit in code spans or blocks and no Hebrew line opens with a command or English word.
