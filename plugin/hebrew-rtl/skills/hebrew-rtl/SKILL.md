@@ -52,7 +52,7 @@ Start each Hebrew cell with a Hebrew word. Cells that hold only a number, a date
 
 ### 5. Last resort: the RLM mark
 
-If a line truly has to start with a Latin name (for example a list of company names where a Hebrew prefix would be awkward), begin the line with U+200F (RIGHT-TO-LEFT MARK), an invisible strong right-to-left character. Use it sparingly: it is invisible, it survives copy-paste into Word, email and contract drafts, and it can break search and document comparison there. Never put it inside code, commands, paths, URLs or tool input.
+If a line truly has to start with a Latin name (for example a list of company names where a Hebrew prefix would be awkward), begin the line with U+200F (RIGHT-TO-LEFT MARK), an invisible strong right-to-left character. Use it sparingly: it is invisible, it survives copy-paste into Word, email and contract drafts, and it can break search and document comparison there. Never put it inside code, commands, paths, URLs or tool input. In Claude Desktop for Windows (checked November 2026), a paragraph, list item or heading that starts with an RLM renders right-to-left even when its first word is English; without it, the same line renders left-to-right.
 
 ### 6. Scope
 

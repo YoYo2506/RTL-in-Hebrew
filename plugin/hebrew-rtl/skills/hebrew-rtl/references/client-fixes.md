@@ -7,7 +7,7 @@ The reply text cannot force alignment. In an app that hard-codes left-to-right, 
 | App | Situation | Options |
 |---|---|---|
 | claude.ai and Claude Code in a browser (claude.ai/code) | No built-in per-message RTL | The user's own userscript `claude-hebrew-rtl.user.js` from the RTL-in-Hebrew repository, installed in Violentmonkey. It sets each block's direction by the majority of its letters, so a mostly-Hebrew paragraph is right-aligned even when it opens with an English term |
-| Claude Desktop (Windows) | Sets each paragraph's direction from its first letter (seen November 2026, chat and Claude Code views) | Nothing to install. A Hebrew paragraph that opens with an English term stays left-to-right, so the fix is the wording rules in SKILL.md. The userscript cannot run inside the app |
+| Claude Desktop (Windows) | Sets each paragraph's direction from its first letter (seen November 2026, chat and Claude Code views) | Nothing to install. A Hebrew paragraph that opens with an English term stays left-to-right, so the fix is the wording rules in SKILL.md. An RLM at the start of the line also works there (checked November 2026), but stays a last resort. The userscript cannot run inside the app |
 | Claude Code in VS Code | The panel forces left-to-right | A VS Code extension for Claude Code RTL (search the marketplace for "Claude Code RTL") |
 | Claude Code in a terminal | Depends on the terminal: VS Code's terminal, Windows Terminal and many others do no bidi at all, so Hebrew can appear reversed | A terminal with bidi support (for example Konsole, GNOME Terminal with bidi enabled, mlterm), or a wrapper that reshapes RTL text in transit |
 
