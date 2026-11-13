@@ -8,12 +8,12 @@ const fs = require('fs');
   // simulate streaming: a new Hebrew paragraph and an edit that flips a paragraph
   await pg.evaluate(() => { const p = document.createElement('p'); p.id = 'stream'; p.textContent = 'Claude'; document.getElementById('msg').appendChild(p); setTimeout(() => { p.textContent = 'פסקה שנוספה בזמן הזרמה.'; }, 50); });
   await pg.waitForTimeout(500);
-  const r = await pg.evaluate(() => Object.fromEntries(['h','p1','p2','ul','li1','ol','p3','pre','tb','td1','td2','stream','edp'].map(id => {
+  const r = await pg.evaluate(() => Object.fromEntries(['h','p1','p2','p4','p5','ul','li1','ol','p3','pre','tb','td1','td2','stream','edp'].map(id => {
     const el = document.getElementById(id), cs = getComputedStyle(el);
     return [id, `${cs.direction} ${cs.textAlign} pl=${cs.paddingLeft} pr=${cs.paddingRight}`];
   })));
   console.log(r);
-  const expected = { h: 'rtl', p1: 'rtl', p2: 'ltr', ul: 'rtl', li1: 'rtl', ol: 'rtl', p3: 'rtl', pre: 'ltr', tb: 'rtl', td1: 'rtl', td2: 'ltr', stream: 'rtl', edp: 'rtl' };
+  const expected = { h: 'rtl', p1: 'rtl', p2: 'ltr', p4: 'rtl', p5: 'ltr', ul: 'rtl', li1: 'rtl', ol: 'rtl', p3: 'rtl', pre: 'ltr', tb: 'rtl', td1: 'rtl', td2: 'ltr', stream: 'rtl', edp: 'rtl' };
   const wrong = Object.entries(expected).filter(([id, dir]) => !r[id].startsWith(dir));
   if (wrong.length) { console.error('FAIL:', wrong); process.exitCode = 1; } else console.log('PASS: all blocks have the expected direction');
   // geometry: text in p1 right edge vs container right edge

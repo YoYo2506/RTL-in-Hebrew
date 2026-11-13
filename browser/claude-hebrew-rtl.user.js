@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Claude Hebrew RTL
 // @namespace    https://github.com/YoYo2506/RTL-in-Hebrew
-// @version      1.0.0
-// @description  Shows Hebrew paragraphs, lists, headings, quotes and tables right-to-left and right-aligned on claude.ai, including Claude Code on the web. English stays left-to-right and code blocks are never touched.
+// @version      1.1.0
+// @description  Shows Hebrew paragraphs, lists, headings, quotes and tables right-to-left and right-aligned on claude.ai, including Claude Code on the web, when most of their letters are Hebrew. English stays left-to-right and code blocks are never touched.
 // @match        https://claude.ai/*
 // @grant        none
 // @run-at       document-idle
@@ -15,32 +15,43 @@
 
   const BLOCKS = 'p, li, h1, h2, h3, h4, h5, h6, blockquote, td, th, ul, ol, table, textarea, [contenteditable="true"]';
   const SKIP = 'pre, code, kbd, samp, .katex, svg';
-  const LETTER = /[\p{L}‎‏]/u;
+  const LETTERS = /[\p{L}‎‏]/gu;
   const RTL = /[֐-ࣿ‏יִ-﷿ﹰ-﻿]/;
 
-  // Direction of the first letter in the element's text, as the Unicode bidi
-  // algorithm would pick it. Text inside code blocks is not considered.
-  function firstStrong(el) {
+  // Count right-to-left and left-to-right letters in a piece of text.
+  function tally(text, counts) {
+    for (const ch of text.match(LETTERS) || []) {
+      if (RTL.test(ch)) counts.rtl++;
+      else counts.ltr++;
+      if (!counts.first) counts.first = RTL.test(ch) ? 'rtl' : 'ltr';
+    }
+  }
+
+  // Direction of the element by majority of letters: mostly Hebrew means
+  // right-to-left, even when the text opens with an English term. A tie goes
+  // to the first letter, as the Unicode bidi algorithm would pick it. Text
+  // inside code blocks is not counted.
+  function direction(el) {
+    const counts = { rtl: 0, ltr: 0, first: null };
     if (el.tagName === 'TEXTAREA') {
-      const m = el.value.match(LETTER);
-      return m ? (RTL.test(m[0]) ? 'rtl' : 'ltr') : null;
+      tally(el.value, counts);
+    } else {
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
+        acceptNode: (node) =>
+          node.parentElement && node.parentElement.closest(SKIP) && el.contains(node.parentElement.closest(SKIP))
+            ? NodeFilter.FILTER_REJECT
+            : NodeFilter.FILTER_ACCEPT,
+      });
+      for (let node = walker.nextNode(); node; node = walker.nextNode()) tally(node.data, counts);
     }
-    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
-      acceptNode: (node) =>
-        node.parentElement && node.parentElement.closest(SKIP) && el.contains(node.parentElement.closest(SKIP))
-          ? NodeFilter.FILTER_REJECT
-          : NodeFilter.FILTER_ACCEPT,
-    });
-    for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-      const m = node.data.match(LETTER);
-      if (m) return RTL.test(m[0]) ? 'rtl' : 'ltr';
-    }
-    return null;
+    if (counts.rtl > counts.ltr) return 'rtl';
+    if (counts.ltr > counts.rtl) return 'ltr';
+    return counts.first;
   }
 
   function apply(el) {
     if (el.closest(SKIP)) return;
-    const dir = firstStrong(el);
+    const dir = direction(el);
     const s = el.style;
     if (dir === 'rtl') {
       if ((el.tagName === 'UL' || el.tagName === 'OL') && !el.dataset.rtlIndent) {
