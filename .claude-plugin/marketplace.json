@@ -1,0 +1,17 @@
+{
+  "name": "rtl-in-hebrew",
+  "owner": {
+    "name": "Yohai Edery"
+  },
+  "metadata": {
+    "description": "Hebrew right-to-left helpers for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "hebrew-rtl-hook",
+      "source": "./plugin/hebrew-rtl-hook",
+      "description": "When a prompt contains Hebrew, reminds Claude Code to open every Hebrew paragraph, list item, heading and table cell with a Hebrew word, so replies render right-to-left.",
+      "version": "1.0.0"
+    }
+  ]
+}

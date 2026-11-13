@@ -61,11 +61,19 @@
 
 ההוק ארוז כתוסף בתיקייה `plugin/hebrew-rtl-hook`, וכקובץ `hebrew-rtl-hook.zip` להעלאה. תוסף שמועלה לחשבון מסתנכרן ל-Claude Code בדסקטופ ובדפדפן. בצ'אט רגיל הוסקים לא רצים, ושם ההוראות הקבועות עושות את העבודה.
 
-**התקנה:**
+**התקנה דרך ה-marketplace של הריפו (מומלץ):**
 
-1. לפתוח את Customize > Plugins.
-2. לבחור בהעלאת תוסף מותאם אישית ולהעלות את `hebrew-rtl-hook.zip`.
-3. לוודא שהתוסף מופעל, ולפתוח סשן חדש של Claude Code. התוספים מסתנכרנים בתחילת סשן.
+1. לפתוח את Customize > Plugins, ללחוץ על Add ולבחור Add marketplace.
+2. לבחור Add from a repository ולהזין `YoYo2506/RTL-in-Hebrew`.
+3. להתקין מתוכו את התוסף `hebrew-rtl-hook`, לוודא שהוא מופעל, ולפתוח סשן חדש של Claude Code. התוספים מסתנכרנים בתחילת סשן.
+
+אפשר גם להתקין ישירות מתוך Claude Code:
+
+```text
+/plugin install hebrew-rtl-hook --marketplace YoYo2506/RTL-in-Hebrew
+```
+
+**התקנה מקובץ:** ב-Customize > Plugins לבחור בהעלאת תוסף מותאם אישית ולהעלות את `hebrew-rtl-hook.zip`.
 
 **דרישה:** ההוק הוא סקריפט bash. ב-Mac וב-Linux הוא קיים מראש, וב-Windows צריך Git for Windows (Git Bash).
 
