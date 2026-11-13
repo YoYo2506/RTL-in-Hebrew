@@ -8,10 +8,10 @@
   },
   "plugins": [
     {
-      "name": "hebrew-rtl-hook",
-      "source": "./plugin/hebrew-rtl-hook",
-      "description": "When a prompt contains Hebrew, reminds Claude Code to open every Hebrew paragraph, list item, heading and table cell with a Hebrew word, so replies render right-to-left.",
-      "version": "1.0.0"
+      "name": "hebrew-rtl",
+      "source": "./plugin/hebrew-rtl",
+      "description": "Hebrew right-to-left replies: a skill with the formatting rules (chat and Claude Code) and a hook that adds them to every Hebrew prompt in Claude Code.",
+      "version": "1.1.0"
     }
   ]
 }

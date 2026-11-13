@@ -1,0 +1,15 @@
+{
+  "name": "hebrew-rtl",
+  "version": "1.1.0",
+  "description": "Hebrew right-to-left replies: a skill with the formatting rules (chat and Claude Code) and a hook that adds them to every Hebrew prompt in Claude Code.",
+  "author": {
+    "name": "Yohai Edery"
+  },
+  "repository": "https://github.com/YoYo2506/RTL-in-Hebrew",
+  "license": "MIT",
+  "keywords": [
+    "hebrew",
+    "rtl",
+    "bidi"
+  ]
+}
