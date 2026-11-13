@@ -22,6 +22,8 @@ So the job is simple to state: **every block of Hebrew text must start with a He
 
 A block is anything the renderer lays out as its own line or paragraph: a paragraph, a list item, a heading, a table cell, a quote line, a line after a line break, a bold lead-in.
 
+The first line of the reply counts too, including a greeting or the user's name. When the reply is mostly Hebrew, open it in Hebrew: write the user's name in Hebrew letters ("יוחאי," rather than "Yohai,"), and do not open with an English sentence before the Hebrew content.
+
 Markdown markers (`-`, `1.`, `##`, `**`, `>`) and digits do not count. Only the first letter matters.
 
 | Instead of | Write |
