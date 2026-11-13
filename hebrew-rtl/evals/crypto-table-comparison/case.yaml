@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: crypto-table-comparison
+expected_outcome: |
+  A Hebrew comparison table whose Hebrew cells open with Hebrew words, followed by a two-line Hebrew recommendation.

@@ -1,0 +1,6 @@
+{
+  "hookSpecificOutput": {
+    "hookEventName": "UserPromptSubmit",
+    "additionalContext": "The user's message contains Hebrew. If your reply is in Hebrew, fully or mixed with another language, follow these rules so it renders right-to-left: open every paragraph, list item, heading, table cell and bold lead-in with a Hebrew word, never with a Latin-script term, statute name, product name, command or path. Put a Hebrew word before such a term instead (for example ה-GDPR, חוק ה-CCPA, הפקודה `npm install`). Keep English terms in Latin letters; do not transliterate them. Put code, commands, paths and URLs in backticks or code blocks. Do not mention these formatting rules in the reply. They apply to the chat reply only, not to files, code or commit messages."
+  }
+}
